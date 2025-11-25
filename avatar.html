@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>ROBLOX - Avatar Customization</title>
+    <style>
+        /* --- CSS BASEADO NA ERA 2010-2012 --- */
+        body { margin: 0; padding: 0; font-family: Verdana, Arial, Sans-Serif; background-color: #e1e1e1; font-size: 11px; color: #333; }
+        a { text-decoration: none; color: #0054a5; }
+        a:hover { text-decoration: underline; }
+
+        /* BARRA AZUL SUPERIOR & CONTAINER PADRÃO */
+        .header { background: #0054a5; height: 30px; color: white; display: flex; align-items: center; padding: 0 20px; border-bottom: 1px solid #003163; }
+        .header a { color: white; margin-right: 15px; font-weight: bold; }
+        .container { width: 970px; margin: 0 auto; background-color: white; min-height: 900px; border-left: 1px solid #999; border-right: 1px solid #999; }
+        
+        /* LOGO */
+        .logo-box { padding: 10px 20px; border-bottom: 1px solid #ccc; height: 60px; }
+        .logo-img { height: 50px; width: auto; }
+
+        /* NAVEGAÇÃO (ABAS) */
+        .nav-tabs { background: #ccc; height: 30px; padding-left: 20px; border-bottom: 1px solid #777; display: flex; align-items: flex-end; }
+        .tab { background-color: #fff; padding: 8px 15px; margin-right: 5px; border: 1px solid #777; border-bottom: none; font-weight: bold; color: #333; cursor: pointer; position: relative; top: 1px; }
+        .tab.active { font-size: 12px; padding-top: 10px; background-color: white; }
+
+        /* LAYOUT DE CONTEÚDO */
+        .content-area { display: flex; padding: 10px; }
+        .avatar-panel { width: 250px; padding: 10px; border: 1px solid #ccc; background-color: #f8f8f8; margin-right: 15px; }
+        .inventory-panel { flex: 1; padding: 10px; }
+        .inventory-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px; }
+        .inventory-item { border: 1px solid #ddd; padding: 5px; text-align: center; }
+
+        /* --- VISUALIZADOR 3D SIMULADO --- */
+        .viewport-3d {
+            width: 250px;
+            height: 300px;
+            background-color: #ddd; /* Fundo do visor */
+            border: 5px solid #0054a5; /* Borda grossa azul */
+            margin: 0 auto 20px auto;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        }
+
+        /* SIMULAÇÃO DO NOOB (Blocos 3D em CSS) */
+        .avatar-model {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%) perspective(400px) rotateX(20deg) rotateY(10deg);
+            /* Transformação que simula a visão isométrica/3D */
+            transform-style: preserve-3d;
+        }
+
+        /* HEAD: Amarelo */
+        .head { width: 40px; height: 40px; background-color: #ffff00; position: absolute; bottom: 100px; left: -20px; border: 2px solid #000; }
+        
+        /* TORSO: Azul */
+        .torso { width: 40px; height: 60px; background-color: #0000ff; position: absolute; bottom: 40px; left: -20px; border: 2px solid #000; }
+        
+        /* LEGS: Verde */
+        .leg { width: 20px; height: 40px; background-color: #00ff00; position: absolute; bottom: 0; border: 2px solid #000; }
+        .leg.left { left: -20px; }
+        .leg.right { left: 0px; }
+
+        /* BOTÃO SALVAR */
+        .btn-save { background-color: #009900; color: white; border: 2px solid #006600;

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>ROBLOX - Catalog</title>
+    <style>
+        /* --- CSS BASEADO NA ERA 2010-2012 --- */
+        body {
+            margin: 0; padding: 0; font-family: Verdana, Arial, Sans-Serif;
+            background-color: #e1e1e1; font-size: 11px; color: #333;
+        }
+        a { text-decoration: none; color: #0054a5; }
+        a:hover { text-decoration: underline; }
+
+        /* BARRA AZUL SUPERIOR & CONTAINER PADRÃO */
+        .header { background: #0054a5; height: 30px; color: white; display: flex; align-items: center; padding: 0 20px; border-bottom: 1px solid #003163; }
+        .header a { color: white; margin-right: 15px; font-weight: bold; }
+        .container { width: 970px; margin: 0 auto; background-color: white; min-height: 900px; border-left: 1px solid #999; border-right: 1px solid #999; }
+        
+        /* LOGO */
+        .logo-box { padding: 10px 20px; border-bottom: 1px solid #ccc; height: 60px; }
+        .logo-img { height: 50px; width: auto; }
+
+        /* NAVEGAÇÃO (ABAS) */
+        .nav-tabs { background: #ccc; height: 30px; padding-left: 20px; border-bottom: 1px solid #777; display: flex; align-items: flex-end; }
+        .tab { background-color: #fff; padding: 8px 15px; margin-right: 5px; border: 1px solid #777; border-bottom: none; font-weight: bold; color: #333; cursor: pointer; position: relative; top: 1px; }
+        .tab.active { font-size: 12px; padding-top: 10px; background-color: white; }
+
+        /* LAYOUT DE CONTEÚDO (CATÁLOGO) */
+        .content-area { display: flex; padding: 10px; }
+
+        /* BARRA LATERAL DE FILTROS */
+        .catalog-sidebar {
+            width: 200px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f8f8f8;
+            margin-right: 15px;
+            font-size: 11px;
+        }
+        .catalog-sidebar h4 { color: #0054a5; border-bottom: 1px solid #ccc; padding-bottom: 5px; margin-top: 15px; }
+        .filter-group label { display: block; margin-bottom: 3px; }
+        .filter-group select { width: 90%; padding: 3px; border: 1px solid #999; }
+
+        /* GRID PRINCIPAL DOS ITENS */
+        .main-catalog { flex: 1; }
+        .catalog-header { font-size: 16px; font-weight: bold; margin-bottom: 15px; }
+        .item-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 itens por linha */
+            gap: 15px;
+        }
+
+        /* CARD DE ITEM INDIVIDUAL */
+        .catalog-item {
+            border: 1px solid #ccc;
+            padding: 5px;
+            background-color: white;
+            text-align: center;
+        }
+
+        .item-thumbnail {
+            width: 100%;
+            height: 120px;
+            background-color: #e1e1e1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 5px;
+            font-size: 10px;
+            border: 1px solid #999;
+        }
+
+        .item-name { font-weight: bold; font-size: 12px; margin-bottom: 3px; color: #0054a5; }
+        .item-price { font-size: 11px; margin-bottom: 5px; }
+        .price-robux { color: #060; font-weight: bold; }
+        .price-tix { color: #a88a00; font-weight: bold; }
+
+        .btn-buy {
+            background-color: #009900;
+            color: white;
+            border: 2px solid #006600;
+            padding: 5px 10px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: Verdana;
+            font-size: 11px;
+            margin-top: 5px;
+        }
+
+        /* RODAPÉ */
+        .footer { text-align: center; padding: 20px; font-size: 10px; color: #666; border-top: 1px solid #ccc; margin-top: 50px; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <a href="index.html">My Roblox</a>
+        <a href="#">Games</a>
+        <a href="catalog.html">Catalog</a>
+        <a href="#">People</a>
+        <a href="#">Develop</a>
+        <a href="#">Forum</a>
+        <div style="margin-left: auto;">
+            <input type="text" placeholder="Search...">
+        </div>
+    </div>
+
+    <div class="container">
+        
+        <div class="logo-box">
+            <img src="image_0.png" alt="Roblox Logo" class="logo-img">
+        </div>
+
+        <div class="nav-tabs">
+            <div class="tab"><a href="index.html">Home</a></div>
+            <div class="tab active">Catalog</div>
+            <div class="tab">Avatar</div>
+            <div class="tab">My Inventory</div>
+        </div>
+
+        <div class="content-area">
+            
+            <div class="catalog-sidebar">
+                <h3>Catalog Filters</h3>
+                
+                <div class="filter-group">
+                    <h4>Categories</h4>
+                    <label><input type="checkbox"> Hats</label>
+                    <label><input type="checkbox"> Faces</label>
+                    <label><input type="checkbox"> Gear</label>
+                    <label><input type="checkbox"> T-Shirts</label>
+                </div>
+
+                <div class="filter-group">
+                    <h4>Price</h4>
+                    <select>
+                        <option>Any Price</option>
+                        <option>Under R$ 100</option>
+                        <option>Tix Items</option>
+                        <option>Limited Items</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <h4>Creator</h4>
+                    <select>
+                        <option>Any Creator</option>
+                        <option>ROBLOX</option>
+                        <option>User Items</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="main-catalog">
+                <div class="catalog-header">Showing 1-9 of 999 items...</div>
+                
+                <div class="item-grid">
+                    
+                    <div class="catalog-item">
+                        <div class="item-thumbnail">[CLASSIC FEDORA]</div>
+                        <div class="item-name">Classic Fedora</div>
+                        <div class="item-price">Price: <span class="price-robux">R$ 1,000</span></div>
+                        <button class="btn-buy">Buy Now</button>
+                    </div>
+
+                    <div class="catalog-item">
+                        <div class="item-thumbnail">[RED STF] - LIMITED</div>
+                        <div class="item-name">Red Sparkle Time Fedora</div>
+                        <div class="item-price">Price: <span class="price-robux">R$ 10,000</span></div>
+                        <button class="btn-buy" style="background-color:#0054a5; border-color:#003163;">Limited Buy</button>
+                    </div>
+
+                    <div class="catalog-item">
+                        <div class="item-thumbnail">[SMILE FACE]</div>
+                        <div class="item-name">Smile Face</div>
+                        <div class="item-price">Price: <span class="price-tix">Tx 100</span></div>
+                        <button class="btn-buy">Buy Now (Tix)</button>
+                    </div>
+                    
+                    <div class="catalog-item">
+                        <div class="item-thumbnail">[ROBLOX VISOR]</div>
+                        <div class="item-name">Roblox Visor</div>
+                        <div class="item-price">Price: <span class="price-robux">R$ 50</span></div>
+                        <button class="btn-buy">Buy Now</button>
+                    </div>
+
+                    <div class="catalog-item">
+                        <div class="item-thumbnail">[GOLDEN KATANA]</div>
+                        <div class="item-name">Golden Katana</div>
+                        <div class="item-price">Price: <span class="price-tix">Tx 800</span></div>
+                        <button class="btn-buy">Buy Now (Tix)</button>
+                    </div>
+                    
+                    <div class="catalog-item">
+                        <div class="item-thumbnail">[T-SHIRT]</div>
+                        <div class="item-name">Classic White T-Shirt</div>
+                        <div class="item-price">Price: <span class="price-robux">R$ 5</span></div>
+                        <button class="btn-buy">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>ROBLOX Corporation © 2012. All rights reserved.</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
